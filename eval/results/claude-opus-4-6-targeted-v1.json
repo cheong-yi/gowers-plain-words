@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "experiment": "claude-opus-4-6-targeted-v1",
+  "scope": "six closed-world cases; current versus candidate policy; Claude Code only",
+  "run_id": "20260805T065839Z",
+  "checker_status": "historical_pre_hardening",
+  "checker_note": "Generated before claim-state false-green hardening; recorded counts and checker hash are retained as provenance, not current post-hardening evidence.",
+  "harness": "Claude Code",
+  "model": "claude-opus-4-6",
+  "effort": "low",
+  "tools": "disabled",
+  "sessions": "non-persistent",
+  "calls": 12,
+  "passed_processes": 12,
+  "checker_errors": 0,
+  "checker_sha256": "e028e2504719140414a33b4bd8345fdf6913f822173b489f2c79577ce24682ca",
+  "case_contract_sha256": "17d7cbac1f46e8e7fdc4f8efc5f0079fbdfb7d07dc7fa89d800fbdcf2b8f67df",
+  "policies": {
+    "current": "7f55b8a9ad046ad9db7365c46d07ef8bfd81d45bdfa237aad0cfe8cd310a5097",
+    "candidate": "7d503e6b9d63fa7d4a2622b6583477e618d0afd1855433e3cc950b11e8167863"
+  },
+  "deterministic_clean": {
+    "candidate": 3,
+    "current": 4,
+    "total": 6
+  },
+  "pairwise": {
+    "candidate_win": 0,
+    "current_win": 1,
+    "clean_tie": 3,
+    "failed_tie": 2
+  },
+  "cases": [
+    {
+      "id": "approval_boundary",
+      "candidate": {
+        "clean": false,
+        "findings": [
+          "approval_state_wrong",
+          "commit_scope_state_wrong",
+          "deploy_scope_state_wrong",
+          "exact_approval_state_wrong",
+          "missing_boundary_fact:approval has not been granted",
+          "missing_boundary_fact:commit",
+          "missing_boundary_fact:exact approval",
+          "missing_boundary_fact:no mutation",
+          "missing_boundary_fact:push",
+          "mutation_state_wrong",
+          "push_scope_state_wrong"
+        ],
+        "response_sha256": "e34c615213dd31e2c2f890a4903fa948610c1eeb25937831db73becffaff720d"
+      },
+      "current": {
+        "clean": false,
+        "findings": [
+          "approval_state_wrong",
+          "commit_scope_state_wrong",
+          "contradictory_approval",
+          "missing_boundary_fact:approval has not been granted",
+          "push_scope_state_wrong"
+        ],
+        "response_sha256": "9854a5b666dedeed767300742baa2671e092294e1d488f85d6d4c57af4f151d8"
+      },
+      "pairwise": "failed_tie"
+    },
+    {
+      "id": "causal_diagnosis_only",
+      "candidate": {
+        "clean": false,
+        "findings": [
+          "contradictory_causal_claim",
+          "over_two_sentences"
+        ],
+        "response_sha256": "1b30b2804d1ab4fe5f8f2a0a80f86ae9c3a850adaf56764a4db9a0c01b563f7a"
+      },
+      "current": {
+        "clean": false,
+        "findings": [
+          "over_two_sentences"
+        ],
+        "response_sha256": "b3868eaac1c92e0631c613d4d5c2c14f05b86ce957e9a63e8f6743fbbdb3c973"
+      },
+      "pairwise": "failed_tie"
+    },
+    {
+      "id": "completed_evidence_report",
+      "candidate": {
+        "clean": false,
+        "findings": [
+          "missing_fact:pytest tests/test_session.py -q",
+          "targeted_test_state_wrong"
+        ],
+        "response_sha256": "5cff4a075883feea404366c679e44e46aff38ed55d76e73050c4bd7999bdc72d"
+      },
+      "current": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "9473cc11fc67d1c52482235bc8c49470c00159ef5c7bf44e1d1ad54a9d5aee90"
+      },
+      "pairwise": "current_win"
+    },
+    {
+      "id": "decision_useful_action",
+      "candidate": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "da9fef52858e114101f9f7698fd8915a5d43585d2e65363c2c6d49ec91d1dda5"
+      },
+      "current": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "d5fb585a4fb671eee9bffb26f9272bdc32d954ecba581a4eb92fb4990a9451dd"
+      },
+      "pairwise": "clean_tie"
+    },
+    {
+      "id": "exact_format",
+      "candidate": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "cfde5101e5234808327ef17d4a4096c13d71c72f96279ccf44b8b834fb77e4dd"
+      },
+      "current": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "cfde5101e5234808327ef17d4a4096c13d71c72f96279ccf44b8b834fb77e4dd"
+      },
+      "pairwise": "clean_tie"
+    },
+    {
+      "id": "state_only",
+      "candidate": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "0aeaad47e95c675ffcef2f5ca53de6365cc36533b2b740edb038007b19ac4888"
+      },
+      "current": {
+        "clean": true,
+        "findings": [],
+        "response_sha256": "0aeaad47e95c675ffcef2f5ca53de6365cc36533b2b740edb038007b19ac4888"
+      },
+      "pairwise": "clean_tie"
+    }
+  ],
+  "limitations": [
+    "Small same-family sample; not a universal style benchmark.",
+    "Approval-boundary and causal cases produced failures for both policies under wording-sensitive deterministic checks and are not evidence of a candidate advantage.",
+    "The candidate completed-evidence response omitted the exact contracted pytest command; this is a real failure under the case contract.",
+    "Response hashes cover canonical stripped responses; raw evaluator directories remain outside the repository."
+  ],
+  "raw_artifacts": "not included"
+}

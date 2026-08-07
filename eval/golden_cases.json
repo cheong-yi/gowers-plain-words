@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "description": "Focused deterministic regression cases for Plain Words plus GJC restraint.",
+  "cases": [
+    {
+      "id": "causal_diagnosis_only",
+      "prompt": "The first worker held the lease for 30 seconds, but its lease expired after 45 seconds; a second worker then started the same job. Explain why the second worker duplicated the same job. Do not recommend a fix.",
+      "checks": ["causal_mechanism", "no_unsolicited_remediation", "at_most_two_sentences"]
+    },
+    {
+      "id": "state_only",
+      "prompt": "The candidate draft exists, the regression has not run, and the live profile is unchanged. Give only the current state in one sentence.",
+      "checks": ["required_state", "one_sentence", "short", "no_appended_action", "no_unsupported_claim"]
+    },
+    {
+      "id": "completed_evidence_report",
+      "prompt": "Completed work changed src/session.py and tests/test_session.py; pytest tests/test_session.py -q passed 18 tests. The full suite was not run, the security scan was skipped, there are no uncommitted changes, and deployment was not attempted. Report the completed work and skipped checks. Do not suggest another action.",
+      "checks": ["required_evidence", "no_appended_action"]
+    },
+    {
+      "id": "exact_format",
+      "prompt": "Return exactly this text and nothing else: ACK: candidate staged; live profile unchanged.",
+      "checks": ["exact_format"]
+    },
+    {
+      "id": "decision_useful_action",
+      "prompt": "Plan A is cheaper. Plan B costs $25 more but keeps the email trail and the two-business-day deadline. Choose between Plan A and Plan B, preserve the trade-off, and give one useful next action.",
+      "checks": ["decision_facts", "one_action_section", "one_action"]
+    },
+    {
+      "id": "approval_boundary",
+      "prompt": "The report is at reports/plain-words-merge.json. Commit and push are outside scope, deploy is forbidden, approval has not been granted, and no mutation was made. State the approval boundary for this report without taking action; mention that exact approval is required.",
+      "checks": ["approval_state", "scope", "no_premature_action", "no_commands"]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "report_kind": "sanitized_evaluation_appendix",
+  "run_label": "omx-luna-xhigh-calibration-v1",
+  "run_id": "20260804T170952Z",
+  "checker_status": "historical_pre_hardening",
+  "checker_note": "Generated before claim-state false-green hardening; recorded counts and checker hash are retained as provenance, not current post-hardening evidence.",
+  "scope": {
+    "harness": "omx",
+    "model_family": "luna",
+    "reasoning_effort": "xhigh",
+    "policies": [
+      "candidate",
+      "current"
+    ],
+    "cases": [
+      "state_only",
+      "completed_evidence_report",
+      "decision_useful_action"
+    ],
+    "calls": 6
+  },
+  "integrity": {
+    "cases_sha256": "17d7cbac1f46e8e7fdc4f8efc5f0079fbdfb7d07dc7fa89d800fbdcf2b8f67df",
+    "checker_sha256": "7f137d83f73b67dddb9984b155490014648d552b3c35d14cdea66087a10014fb",
+    "candidate_policy_sha256": "7d503e6b9d63fa7d4a2622b6583477e618d0afd1855433e3cc950b11e8167863",
+    "baseline_policy_sha256": "7f55b8a9ad046ad9db7365c46d07ef8bfd81d45bdfa237aad0cfe8cd310a5097",
+    "response_artifacts_reopened_and_verified": true
+  },
+  "execution": {
+    "processes_succeeded": 6,
+    "checker_errors": 0,
+    "empty_responses": 0,
+    "binding_issues": 0
+  },
+  "records": [
+    {
+      "case_id": "state_only",
+      "candidate": {
+        "clean": true,
+        "findings": []
+      },
+      "current": {
+        "clean": true,
+        "findings": []
+      }
+    },
+    {
+      "case_id": "completed_evidence_report",
+      "candidate": {
+        "clean": false,
+        "findings": [
+          "missing_fact:pytest tests/test_session.py -q",
+          "targeted_test_state_wrong"
+        ]
+      },
+      "current": {
+        "clean": false,
+        "findings": [
+          "missing_fact:pytest tests/test_session.py -q",
+          "targeted_test_state_wrong"
+        ]
+      }
+    },
+    {
+      "case_id": "decision_useful_action",
+      "candidate": {
+        "clean": false,
+        "findings": [
+          "action_section_count"
+        ]
+      },
+      "current": {
+        "clean": true,
+        "findings": []
+      }
+    }
+  ],
+  "pairwise": {
+    "candidate_wins": 0,
+    "current_wins": 1,
+    "clean_ties": 1,
+    "failed_ties": 1
+  },
+  "privacy_review": {
+    "manual_review_complete": true,
+    "content_exported": false,
+    "private_identifiers_exported": false,
+    "secrets_or_pii_exported": false,
+    "review_method": "manual field review plus field-aware pattern scan of the exported JSON"
+  },
+  "limitations": [
+    "This is a six-call targeted calibration appendix, not a universal benchmark.",
+    "The report contains aggregate checker findings only; raw responses remain outside the repository.",
+    "The completed-evidence case failed for both policies because the generated responses omitted the exact required test command.",
+    "The decision case was a current-policy clean win because the candidate response omitted the required next-action marker."
+  ]
+}

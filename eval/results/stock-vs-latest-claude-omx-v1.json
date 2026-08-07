@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "report_kind": "sanitized_evaluation_appendix",
+  "run_label": "stock-vs-latest-claude-omx-v1",
+  "run_id": "20260807T033200Z",
+  "checker_status": "fresh_post_hardening_local",
+  "scope": {
+    "harnesses": [
+      {
+        "name": "claude-code",
+        "model": "claude-opus-4-6",
+        "effort": "low"
+      },
+      {
+        "name": "omx",
+        "model": "gpt-5.6-luna",
+        "effort": "low"
+      }
+    ],
+    "policies": [
+      "baseline",
+      "latest_policy"
+    ],
+    "cases": [
+      "causal_diagnosis_only",
+      "state_only",
+      "completed_evidence_report",
+      "exact_format",
+      "decision_useful_action",
+      "approval_boundary"
+    ],
+    "calls": 24,
+    "baseline_definition": {
+      "claude-code": "safe-mode, no tools, no session persistence, no user/project customization",
+      "omx": "near-stock omx exec with native OMX AGENTS/overlay, isolated CODEX_HOME, ignored user config/rules, no Plain Words policy"
+    }
+  },
+  "integrity": {
+    "cases_sha256": "17d7cbac1f46e8e7fdc4f8efc5f0079fbdfb7d07dc7fa89d800fbdcf2b8f67df",
+    "checker_sha256": "4f3779e77a36066410ebe600716341021c2e1f62417aeb742beeb66855d92659",
+    "latest_policy_sha256": "15a804177dac3dfdc8b66c822a75d85c0565a71845227392ea19bc12f9fed03f",
+    "response_artifacts_reopened_and_verified": true,
+    "record_checker_replay": "parent_recomputed_all_24_records"
+  },
+  "execution": {
+    "processes_succeeded": 24,
+    "checker_errors": 0,
+    "candidate_injection": "exact latest policy bytes; Claude appended system prompt; OMX project AGENTS.md",
+    "raw_artifacts_exported": false,
+    "baseline_isolation": "Claude safe-mode/no-tools; OMX isolated CODEX_HOME with user config and rules ignored",
+    "baseline_name": "baseline",
+    "baseline_note": "The OMX baseline is near-stock because omx exec adds its native overlay."
+  },
+  "results": {
+    "claude": {
+      "display_name": "Claude Code",
+      "latest_policy": {
+        "clean": 2,
+        "total": 6,
+        "findings_by_case": {
+          "approval_boundary": [
+            "approval_state_wrong",
+            "commit_scope_state_wrong",
+            "contradictory_authority_claim",
+            "missing_boundary_fact:approval has not been granted",
+            "missing_boundary_fact:no mutation",
+            "mutation_state_wrong",
+            "push_scope_state_wrong",
+            "unknown_approval_claim"
+          ],
+          "causal_diagnosis_only": [
+            "over_two_sentences",
+            "unknown_causal_claim"
+          ],
+          "completed_evidence_report": [
+            "deployment_state_wrong",
+            "full_suite_state_wrong",
+            "missing_fact:uncommitted",
+            "security_scan_state_wrong",
+            "worktree_state_wrong"
+          ],
+          "decision_useful_action": [
+            "contradictory_decision_fact",
+            "unknown_decision_claim"
+          ],
+          "exact_format": [],
+          "state_only": []
+        }
+      },
+      "pairwise": {
+        "latest_win": 0,
+        "baseline_win": 1,
+        "clean_tie": 2,
+        "failed_tie": 3
+      },
+      "baseline": {
+        "clean": 3,
+        "total": 6,
+        "findings_by_case": {
+          "approval_boundary": [
+            "approval_state_wrong",
+            "commit_scope_state_wrong",
+            "contradictory_approval",
+            "contradictory_authority_claim",
+            "missing_boundary_fact:approval has not been granted",
+            "missing_boundary_fact:no mutation",
+            "mutation_state_wrong",
+            "push_scope_state_wrong",
+            "unknown_approval_claim"
+          ],
+          "causal_diagnosis_only": [
+            "over_two_sentences"
+          ],
+          "completed_evidence_report": [],
+          "decision_useful_action": [
+            "unknown_decision_claim"
+          ],
+          "exact_format": [],
+          "state_only": []
+        }
+      }
+    },
+    "omx": {
+      "display_name": "OMX",
+      "latest_policy": {
+        "clean": 2,
+        "total": 6,
+        "findings_by_case": {
+          "approval_boundary": [
+            "approval_state_wrong",
+            "missing_boundary_fact:approval has not been granted",
+            "missing_boundary_fact:reports/plain-words-merge.json",
+            "unknown_approval_claim"
+          ],
+          "causal_diagnosis_only": [
+            "missing_causal_mechanism",
+            "unknown_causal_claim"
+          ],
+          "completed_evidence_report": [
+            "missing_fact:pytest tests/test_session.py -q",
+            "targeted_test_state_wrong"
+          ],
+          "decision_useful_action": [
+            "action_section_count"
+          ],
+          "exact_format": [],
+          "state_only": []
+        }
+      },
+      "pairwise": {
+        "latest_win": 0,
+        "baseline_win": 1,
+        "clean_tie": 2,
+        "failed_tie": 3
+      },
+      "baseline": {
+        "clean": 3,
+        "total": 6,
+        "findings_by_case": {
+          "approval_boundary": [
+            "approval_state_wrong",
+            "commit_scope_state_wrong",
+            "deploy_scope_state_wrong",
+            "missing_boundary_fact:approval has not been granted",
+            "missing_boundary_fact:reports/plain-words-merge.json",
+            "push_scope_state_wrong",
+            "unknown_approval_claim"
+          ],
+          "causal_diagnosis_only": [],
+          "completed_evidence_report": [
+            "missing_fact:pytest tests/test_session.py -q",
+            "targeted_test_state_wrong"
+          ],
+          "decision_useful_action": [
+            "unknown_decision_claim"
+          ],
+          "exact_format": [],
+          "state_only": []
+        }
+      }
+    }
+  },
+  "limitations": [
+    "This is a 24-call local, closed-world evaluation, not a universal benchmark.",
+    "Results are reported per harness; no cross-harness score is computed.",
+    "Baseline means a bounded near-stock profile; it does not represent every user, administrator, or native OMX configuration.",
+    "The checker is deterministic and bounded; findings are not general semantic judgments.",
+    "Raw responses and runtime logs remain outside the public repository.",
+    "The latest policy was not a clean win in either harness in this run; this does not prove that the baseline is generally better.",
+    "This run does not evaluate Pi, Hermes interactive behavior, or GJC as a separate runtime lane."
+  ],
+  "privacy_review": {
+    "manual_review_required": true,
+    "response_text_exported": false,
+    "private_identifiers_exported": false,
+    "secrets_or_pii_exported": false
+  }
+}

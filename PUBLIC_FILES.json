@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "files": [
+    ".github/workflows/gitleaks.yml",
+    ".github/workflows/public-validation.yml",
+    ".gitignore",
+    "INSTALL.md",
+    "LICENSE",
+    "PUBLIC_FILES.json",
+    "README.en-illust.md",
+    "README.md",
+    "REPOSITORY_MAP.md",
+    "SOUL.md",
+    "docs/assets/readme/plain-words-boundary.png",
+    "docs/assets/readme/plain-words-clarity.png",
+    "eval/README.md",
+    "eval/check.py",
+    "eval/fixtures/pass.json",
+    "eval/golden_cases.json",
+    "eval/results/README.md",
+    "eval/results/claude-opus-4-6-targeted-v1.json",
+    "eval/results/omx-luna-xhigh-calibration-v1.json",
+    "eval/results/stock-vs-latest-claude-omx-v1.json",
+    "install.sh",
+    "tests/install_test.py"
+  ]
+}
