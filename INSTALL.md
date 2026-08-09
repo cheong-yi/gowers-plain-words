@@ -38,7 +38,7 @@ eval/results/README.md
 
 The two older checked-in reports are sanitized historical pre-hardening appendices. They contain aggregate findings, not raw responses. Read `eval/README.md` before interpreting them.
 
-The separate `eval/results/stock-vs-latest-claude-omx-v1.json` file is a fresh 24-call local appendix, not a historical report. It compares a bounded baseline with the latest policy across Claude Code and near-stock OMX; its limitations and non-benchmark status are documented in `eval/README.md` and `eval/results/README.md`.
+The separate `eval/results/stock-vs-latest-claude-omx-v1.json` file is a prior 24-call local appendix generated with an earlier checker revision. It compares a bounded baseline with the then-latest policy across Claude Code and near-stock OMX; its limitations and non-benchmark status are documented in `eval/README.md` and `eval/results/README.md`.
 
 Any fresh evaluation must bind the exact policy, checker, case contract, model invocation, and response artifacts, and must be reviewed separately before publication.
 

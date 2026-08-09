@@ -20,9 +20,9 @@ The JSON reports record:
 
 The two earlier reports are immutable provenance appendices from earlier checker versions. The current checker has since received a bounded claim-state hardening pass for causal polarity, decision subject binding, approval directives, unknown-state closure, and bounded speech-act handling. Their recorded counts and hashes are not post-hardening results and should not be read as current semantic proof.
 
-The fresh appendix is separate from those historical reports. It records 3/6 deterministic-clean baseline cases and 2/6 latest-policy cases for both harnesses. The OMX baseline includes its native `omx exec` overlay, so it is near-stock rather than pure stock Codex. The result is narrow local evidence, not a universal benchmark or model-superiority claim.
+The prior appendix is separate from those historical reports. It records 3/6 deterministic-clean baseline cases and 2/6 latest-policy cases for both harnesses. The OMX baseline includes its native `omx exec` overlay, so it is near-stock rather than pure stock Codex. The result is narrow local evidence, not a universal benchmark or model-superiority claim.
 
-For reproducibility, the current `eval/check.py` in this tree has SHA-256 `4f3779e77a36066410ebe600716341021c2e1f62417aeb742beeb66855d92659`.
+The appendix was generated with an earlier checker revision, SHA-256 `4f3779e77a36066410ebe600716341021c2e1f62417aeb742beeb66855d92659`. The current `eval/check.py` has SHA-256 `b2b331d50550aa3c4a339cacd71f0f2a6b7250ab0cca49b38386bd9a4bcdf272`; the appendix is retained as prior local evidence, not a current post-v2 result.
 
 ## Deliberately excluded
 

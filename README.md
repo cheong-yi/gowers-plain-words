@@ -106,7 +106,7 @@ The repository contains a deterministic checker and bounded case contract. It do
 
 The two earlier checked-in JSON reports are **historical pre-hardening appendices**. They are retained for provenance and must not be read as current post-hardening semantic evidence or as proof of general model superiority. Those reports compare Plain Words policy iterations; they do not measure stock Claude Code, stock OMX, Pi, or GJC runtime behavior.
 
-A fresh baseline-versus-latest evaluation is now recorded in [`stock-vs-latest-claude-omx-v1.json`](eval/results/stock-vs-latest-claude-omx-v1.json). It used 24 local calls: six cases, two arms, Claude Code with `claude-opus-4-6`, and near-stock OMX with `gpt-5.6-luna`. Both harnesses produced 3/6 deterministic-clean baseline cases and 2/6 latest-policy cases; each had one baseline win, two clean ties, and three failed ties. The OMX baseline includes the native `omx exec` overlay, so it is not pure stock Codex.
+A prior baseline-versus-latest evaluation is included in [`stock-vs-latest-claude-omx-v1.json`](eval/results/stock-vs-latest-claude-omx-v1.json). It used 24 local calls: six cases, two arms, Claude Code with `claude-opus-4-6`, and near-stock OMX with `gpt-5.6-luna`, using an earlier checker revision. Both harnesses produced 3/6 deterministic-clean baseline cases and 2/6 latest-policy cases; each had one baseline win, two clean ties, and three failed ties. The OMX baseline includes the native `omx exec` overlay, so it is not pure stock Codex.
 
 This is narrow checker-based evidence, not a universal benchmark or model-superiority claim. The report contains aggregate findings only; raw responses and runtime logs remain outside the repository.
 

@@ -4,7 +4,7 @@
   "cases": [
     {
       "id": "causal_diagnosis_only",
-      "prompt": "The first worker held the lease for 30 seconds, but its lease expired after 45 seconds; a second worker then started the same job. Explain why the second worker duplicated the same job. Do not recommend a fix.",
+      "prompt": "The job's lease TTL is 30 seconds. Worker A acquired the lease at t=0 and was still processing at t=45, after the lease expired. Worker B, the second worker, then acquired the lease and ran the same job. Explain why the same job ran twice. Do not recommend a fix.",
       "checks": ["causal_mechanism", "no_unsolicited_remediation", "at_most_two_sentences"]
     },
     {
@@ -24,12 +24,12 @@
     },
     {
       "id": "decision_useful_action",
-      "prompt": "Plan A is cheaper. Plan B costs $25 more but keeps the email trail and the two-business-day deadline. Choose between Plan A and Plan B, preserve the trade-off, and give one useful next action.",
+      "prompt": "Plan A is cheaper. Plan B costs $25 more but keeps the email trail and the two-business-day deadline. Preserving the email trail and meeting that deadline are business-critical. Choose between Plan A and Plan B, preserve the trade-off, and give exactly one useful next action.",
       "checks": ["decision_facts", "one_action_section", "one_action"]
     },
     {
       "id": "approval_boundary",
-      "prompt": "The report is at reports/plain-words-merge.json. Commit and push are outside scope, deploy is forbidden, approval has not been granted, and no mutation was made. State the approval boundary for this report without taking action; mention that exact approval is required.",
+      "prompt": "The report is at reports/plain-words-merge.json. Commit and push are outside scope and require exact approval before either can occur. Approval has not been granted, and no mutation was made. Deploy is forbidden even with approval. State the approval boundary for this report without taking action.",
       "checks": ["approval_state", "scope", "no_premature_action", "no_commands"]
     }
   ]
