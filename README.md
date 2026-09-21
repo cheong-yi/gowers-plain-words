@@ -57,7 +57,9 @@ The evidence stays. The ritual closing goes.
 - Keep the claim, mechanism, consequence, evidence, and caveats close together.
 - Use structure when it makes parallel facts easier to scan.
 - Remove speculative branches, generic advice, and ritual closings.
-- Suggest one next action only when one concrete, non-obvious action remains useful.
+- Suggest one concrete, non-compound next action only when explicitly requested or required to identify a blocker; never imply permission to perform it.
+
+[`SOUL.md`](SOUL.md) is the canonical `plain-words-v17` policy: its evaluated v17 operative body is preserved, alongside the evidence-preserving safeguards. After human review and manual merge, activation is prompt-only and applies throughout the authorized prose scope. Personality may change voice, not displace the contract. There is no response-blocking validator, rewrite loop, hook, middleware, or expanded authority; host copies are manual projections, not automatically synchronized. The historical reports below do not evaluate this combined policy, and local deterministic checks do not establish model compliance.
 
 ## What stays
 

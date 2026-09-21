@@ -2,7 +2,6 @@
   "schema_version": 1,
   "report_kind": "sanitized_evaluation_appendix",
   "run_label": "omx-luna-xhigh-calibration-v1",
-  "run_id": "20260804T170952Z",
   "checker_status": "historical_pre_hardening",
   "checker_note": "Generated before claim-state false-green hardening; recorded counts and checker hash are retained as provenance, not current post-hardening evidence.",
   "scope": {

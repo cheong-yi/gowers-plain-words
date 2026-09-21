@@ -2,7 +2,6 @@
   "version": 1,
   "experiment": "claude-opus-4-6-targeted-v1",
   "scope": "six closed-world cases; current versus candidate policy; Claude Code only",
-  "run_id": "20260805T065839Z",
   "checker_status": "historical_pre_hardening",
   "checker_note": "Generated before claim-state false-green hardening; recorded counts and checker hash are retained as provenance, not current post-hardening evidence.",
   "harness": "Claude Code",
